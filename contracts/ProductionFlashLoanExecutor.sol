@@ -204,7 +204,7 @@ contract FlashLoanExecutor {
         uint256[] memory amounts,
         uint256[] memory feeAmounts,
         bytes memory userData
-    ) external nonReentrant {
+    ) external payable nonReentrant {
         require(msg.sender == address(balancerVault), "Only Balancer");
 
         uint256 gasStart = gasleft();
@@ -228,7 +228,8 @@ contract FlashLoanExecutor {
     }
 
     function _executeStrategy(address token, uint256 amount, string memory strategyType, bytes memory operationData)
-        internal returns (uint256 finalBalance) {
+        internal returns (uint256 finalBalance)
+    {
         if (keccak256(bytes(strategyType)) == keccak256("liquidation")) {
             finalBalance = _executeLiquidation(token, amount, operationData);
         } else if (keccak256(bytes(strategyType)) == keccak256("arbitrage")) {
@@ -245,7 +246,9 @@ contract FlashLoanExecutor {
         IERC20(data.token).approve(address(balancerVault), data.totalRepayment);
         IERC20(data.token).transfer(address(balancerVault), data.totalRepayment);
 
-        if (data.fees > 0) IERC20(data.token).transfer(feeRecipient, data.fees);
+        if (data.fees > 0) {
+            IERC20(data.token).transfer(feeRecipient, data.fees);
+        }
         IERC20(data.token).transfer(data.user, data.netProfit);
 
         _updateUserMetrics(data.user, data.amount, data.netProfit, true);
@@ -267,7 +270,9 @@ contract FlashLoanExecutor {
         require(IMToken(mTokenBorrowed).liquidateBorrow(borrower, repayAmount, mTokenCollateral) == 0, "Liquidation fail");
 
         uint256 mBal = IERC20(mTokenCollateral).balanceOf(address(this));
-        if (mBal > 0) IMToken(mTokenCollateral).redeem(mBal);
+        if (mBal > 0) {
+            IMToken(mTokenCollateral).redeem(mBal);
+        }
 
         uint256 afterBal = IERC20(collateralToken).balanceOf(address(this));
         uint256 seized = afterBal - before;
@@ -281,6 +286,7 @@ contract FlashLoanExecutor {
 
     function _swapTokens(address tokenIn, address, uint256 amountIn) internal returns (uint256) {
         IERC20(tokenIn).approve(dexRouter, amountIn);
+        // Swap logic to be implemented
         return amountIn;
     }
 
@@ -298,8 +304,11 @@ contract FlashLoanExecutor {
         profile.totalVolume += volume;
         profile.totalProfit += profit;
         profile.lastOperationTime = block.timestamp;
-        if (success) profile.successfulOperations++;
-        else profile.failedOperations++;
+        if (success) {
+            profile.successfulOperations++;
+        } else {
+            profile.failedOperations++;
+        }
 
         totalVolumeProcessed += volume;
         totalProfitsGenerated += profit;

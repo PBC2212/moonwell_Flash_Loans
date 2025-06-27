@@ -1,115 +1,26 @@
 {
-  "name": "enterprise-flash-loan-system",
+  "name": "institutional-flashloan-system",
   "version": "1.0.0",
-  "description": "Production-grade flash loan arbitrage and liquidation system for $100K+ operations",
-  "main": "index.js",
+  "description": "Institutional-grade flash loan system with advanced risk management",
+  "main": "main.js",
   "scripts": {
-    "compile": "hardhat compile",
-    "test": "hardhat test",
-    "test:coverage": "hardhat coverage",
-    
-    "deploy:sepolia": "hardhat run scripts/deploy-production.js --network sepolia",
-    "deploy:base": "hardhat run scripts/deploy-production.js --network base",
-    "deploy:arbitrum": "hardhat run scripts/deploy-production.js --network arbitrum", 
-    "deploy:polygon": "hardhat run scripts/deploy-production.js --network polygon",
-    "deploy:all": "npm run deploy:base && npm run deploy:arbitrum && npm run deploy:polygon",
-    
-    "verify:sepolia": "hardhat verify --network sepolia",
-    "verify:base": "hardhat verify --network base",
-    "verify:arbitrum": "hardhat verify --network arbitrum",
-    "verify:polygon": "hardhat verify --network polygon",
-    "verify:all": "npm run verify:base && npm run verify:arbitrum && npm run verify:polygon",
-    
-    "monitor:start": "node monitoring/opportunity-monitor.js",
-    "monitor:stop": "pkill -f opportunity-monitor.js",
-    
-    "bot:start": "node bots/execution-bot.js",
-    "bot:stop": "pkill -f execution-bot.js",
-    
-    "dashboard:start": "node dashboard/server.js",
-    "dashboard:stop": "pkill -f \"dashboard/server.js\"",
-    
-    "system:start": "npm run monitor:start & npm run bot:start & npm run dashboard:start",
-    "system:stop": "npm run monitor:stop && npm run bot:stop && npm run dashboard:stop",
-    
-    "logs:view": "tail -f logs/monitoring.log",
-    "logs:execution": "tail -f logs/execution.log",
-    "logs:dashboard": "tail -f logs/dashboard.log",
-    "logs:error": "tail -f logs/error.log",
-    "logs:clear": "rm -f logs/*.log && echo 'All logs cleared'",
-    
-    "setup:dirs": "mkdir -p logs deployments monitoring dashboard bots scripts contracts",
-    "setup:logs": "touch logs/monitoring.log logs/execution.log logs/dashboard.log logs/error.log",
-    "setup:config": "cp .env.example .env.production",
-    "setup": "npm run setup:dirs && npm run setup:logs",
-    
-    "health:check": "node scripts/health-check.js",
-    "status": "node scripts/system-status.js",
-    
-    "emergency:pause": "node scripts/emergency-pause.js",
-    "emergency:stop": "npm run system:stop && npm run emergency:pause",
-    
-    "report:daily": "node scripts/daily-report.js",
-    "report:profits": "node scripts/profit-report.js",
-    
-    "start": "echo '🚀 Starting Enterprise Flash Loan System...' && npm run system:start",
-    "stop": "echo '🛑 Stopping Enterprise Flash Loan System...' && npm run system:stop",
-    "restart": "npm run stop && sleep 3 && npm run start",
-    
-    "dev": "npm run monitor:start",
-    "prod": "NODE_ENV=production npm run start"
-  },
-  "keywords": [
-    "defi",
-    "flash-loans", 
-    "arbitrage",
-    "liquidation",
-    "ethereum",
-    "base",
-    "arbitrum",
-    "polygon",
-    "enterprise",
-    "production",
-    "moonwell",
-    "balancer",
-    "profit"
-  ],
-  "author": "Enterprise DeFi Team",
-  "license": "MIT",
-  "engines": {
-    "node": ">=18.0.0",
-    "npm": ">=8.0.0"
-  },
-  "repository": {
-    "type": "git", 
-    "url": "https://github.com/your-org/enterprise-flash-loan-system.git"
-  },
-  "devDependencies": {
-    "@nomicfoundation/hardhat-toolbox": "^5.0.0",
-    "@nomicfoundation/hardhat-chai-matchers": "^2.0.0",
-    "@nomicfoundation/hardhat-ethers": "^3.0.0",
-    "@nomicfoundation/hardhat-ignition-ethers": "^0.15.0",
-    "@nomicfoundation/hardhat-network-helpers": "^1.0.0",
-    "@nomicfoundation/hardhat-verify": "^2.0.0",
-    "@typechain/ethers-v6": "^0.5.0",
-    "@typechain/hardhat": "^9.0.0",
-    "@types/chai": "^4.2.0",
-    "@types/mocha": ">=9.1.0",
-    "chai": "^4.2.0",
-    "hardhat-gas-reporter": "^1.0.8",
-    "solidity-coverage": "^0.8.1",
-    "typechain": "^8.3.0"
+    "start": "node main.js",
+    "demo": "node main.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "@openzeppelin/contracts": "^5.0.0",
-    "axios": "^1.10.0",
-    "dotenv": "^16.5.0",
-    "ethers": "^6.8.0",
-    "express": "^4.21.2",
-    "hardhat": "^2.19.0",
-    "helmet": "^7.1.0",
-    "node-cron": "^3.0.0",
+    "ethers": "^6.14.4",
     "winston": "^3.17.0",
-    "rate-limiter-flexible": "^3.0.0"
-  }
+    "axios": "^1.10.0",
+    "dotenv": "^16.5.0"
+  },
+  "keywords": [
+    "flashloan",
+    "institutional",
+    "risk-management",
+    "analytics",
+    "defi"
+  ],
+  "author": "Your Name",
+  "license": "MIT"
 }

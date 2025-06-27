@@ -1,0 +1,237 @@
+{
+  "reportType": "INSTITUTIONAL_PERFORMANCE_ANALYSIS",
+  "timeframe": "1h",
+  "generatedAt": "2025-06-27T19:07:56.691Z",
+  "reportId": "INST_RPT_1751051276691_tmu9eaqxi",
+  "executiveSummary": {
+    "totalOperations": 4,
+    "successRate": "0.00%",
+    "totalPnL": "$0.00M",
+    "totalVolume": "$2350000.00M",
+    "avgProfitPerOperation": "$0",
+    "roi": "0.000%",
+    "maxDrawdown": "0.00%",
+    "systemUptime": "99.950%"
+  },
+  "performanceMetrics": {
+    "avgProfit": 0,
+    "medianProfit": 0,
+    "maxProfit": 0,
+    "minProfit": 0,
+    "avgExecutionTime": 584.25,
+    "profitFactor": 0
+  },
+  "riskAnalysis": {
+    "maxDrawdown": 0,
+    "currentDrawdown": 0,
+    "riskAdjustedReturn": 0,
+    "avgSlippage": 0,
+    "errorRate": 1
+  },
+  "networkBreakdown": {
+    "base": {
+      "operations": 2,
+      "pnl": 0,
+      "volume": 150000,
+      "successRate": 0
+    },
+    "arbitrum": {
+      "operations": 1,
+      "pnl": 0,
+      "volume": 200000,
+      "successRate": 0
+    },
+    "polygon": {
+      "operations": 1,
+      "pnl": 0,
+      "volume": 2000000,
+      "successRate": 0
+    }
+  },
+  "strategyBreakdown": {
+    "liquidation": {
+      "operations": 2,
+      "pnl": 0,
+      "volume": 150000,
+      "successRate": 0
+    },
+    "arbitrage": {
+      "operations": 2,
+      "pnl": 0,
+      "volume": 2200000,
+      "successRate": 0
+    }
+  },
+  "alerts": [
+    {
+      "type": "HIGH_ERROR_RATE",
+      "severity": "warning",
+      "value": 1
+    }
+  ],
+  "recommendations": [
+    "Review execution logic due to high error rate"
+  ],
+  "detailedAnalysis": {
+    "performanceAttribution": {
+      "networkContribution": {
+        "base": {
+          "totalPnL": "0",
+          "totalVolume": "150000000000",
+          "operations": 2,
+          "successRate": 0.5,
+          "avgGasPrice": "0",
+          "avgExecutionTime": 0,
+          "uniqueUsers": {},
+          "peakVolume": "0",
+          "errorTypes": {}
+        },
+        "arbitrum": {
+          "totalPnL": "0",
+          "totalVolume": "200000000000",
+          "operations": 1,
+          "successRate": 0,
+          "avgGasPrice": "0",
+          "avgExecutionTime": 0,
+          "uniqueUsers": {},
+          "peakVolume": "0",
+          "errorTypes": {}
+        },
+        "polygon": {
+          "totalPnL": "0",
+          "totalVolume": "2000000000000",
+          "operations": 1,
+          "successRate": 0,
+          "avgGasPrice": "0",
+          "avgExecutionTime": 0,
+          "uniqueUsers": {},
+          "peakVolume": "0",
+          "errorTypes": {}
+        }
+      },
+      "strategyContribution": {
+        "liquidation": {
+          "totalPnL": "0",
+          "totalVolume": "150000000000",
+          "operations": 2,
+          "successRate": 0.5,
+          "avgProfitPerOp": 0,
+          "maxProfit": "0",
+          "minProfit": "0",
+          "riskScore": 0
+        },
+        "arbitrage": {
+          "totalPnL": "0",
+          "totalVolume": "2200000000000",
+          "operations": 2,
+          "successRate": 0.5,
+          "avgProfitPerOp": 0,
+          "maxProfit": "0",
+          "minProfit": "0",
+          "riskScore": 0
+        },
+        "sandwich": {
+          "totalPnL": "0",
+          "totalVolume": "0",
+          "operations": 0,
+          "successRate": 0,
+          "avgProfitPerOp": 0,
+          "maxProfit": "0",
+          "minProfit": "0",
+          "riskScore": 0
+        }
+      }
+    },
+    "riskContribution": {
+      "volatilityContribution": 0.3,
+      "liquidityContribution": 0.2,
+      "executionRisk": 0.5
+    },
+    "executionQuality": {
+      "avgSlippage": 0,
+      "executionEfficiency": 0
+    }
+  },
+  "rawData": [
+    {
+      "id": "demo_liquidation_1",
+      "timestamp": 1751051270304,
+      "user": "system",
+      "network": "base",
+      "strategy": "liquidation",
+      "amount": "50000000000",
+      "estimatedProfit": "3000000000",
+      "actualProfit": "0",
+      "gasUsed": 0,
+      "gasPrice": "0",
+      "executionTime": 0,
+      "slippage": 0,
+      "riskScore": 65,
+      "success": false,
+      "error": "Risk management rejection",
+      "fees": "0",
+      "blockNumber": 0,
+      "transactionHash": null
+    },
+    {
+      "id": "demo_arbitrage_1",
+      "timestamp": 1751051273664,
+      "user": "system",
+      "network": "arbitrum",
+      "strategy": "arbitrage",
+      "amount": "200000000000",
+      "estimatedProfit": "8000000000",
+      "actualProfit": "0",
+      "gasUsed": 51326,
+      "gasPrice": "0",
+      "executionTime": 2337,
+      "slippage": 0,
+      "riskScore": 20,
+      "success": false,
+      "error": "Simulated execution failure",
+      "fees": "0",
+      "blockNumber": 0,
+      "transactionHash": null
+    },
+    {
+      "id": "demo_large_position",
+      "timestamp": 1751051274676,
+      "user": "system",
+      "network": "polygon",
+      "strategy": "arbitrage",
+      "amount": "2000000000000",
+      "estimatedProfit": "15000000000",
+      "actualProfit": "0",
+      "gasUsed": 0,
+      "gasPrice": "0",
+      "executionTime": 0,
+      "slippage": 0,
+      "riskScore": 75,
+      "success": false,
+      "error": "Risk management rejection",
+      "fees": "0",
+      "blockNumber": 0,
+      "transactionHash": null
+    },
+    {
+      "id": "demo_low_profit",
+      "timestamp": 1751051275686,
+      "user": "system",
+      "network": "base",
+      "strategy": "liquidation",
+      "amount": "100000000000",
+      "estimatedProfit": "1000000000",
+      "actualProfit": "0",
+      "gasUsed": 0,
+      "gasPrice": "0",
+      "executionTime": 0,
+      "slippage": 0,
+      "riskScore": 20,
+      "success": false,
+      "error": "Risk management rejection",
+      "fees": "0",
+      "blockNumber": 0,
+      "transactionHash": null
+    }
+  ]
+}
